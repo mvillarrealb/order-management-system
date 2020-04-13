@@ -58,3 +58,23 @@ Document based & text search database used to index product catalog
 * Implement shipping service(backed by event sourcing)
 
 docker run -network host -d --name=pgadmin -ePGADMIN_DEFAULT_EMAIL=mvillarreal@mango.com -ePGADMIN_DEFAULT_PASSWORD=casa1234 -p 80:80 dpage/pgadmin4
+
+
+curl -X POST http://localhost:8083/connectors -H "Content-Type: application/json" -d '{
+      "name": "jdbc_source_mysql_01",
+      "config": {
+              "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+              "connection.url": "jdbc:mysql://mysql:3306/test",
+              "connection.user": "connect_user",
+              "connection.password": "connect_password",
+              "topic.prefix": "mysql-01-",
+              "poll.interval.ms" : 3600000,
+              "table.whitelist" : "test.accounts",
+              "mode":"bulk",
+              "transforms":"createKey,extractInt",
+              "transforms.createKey.type":"org.apache.kafka.connect.transforms.ValueToKey",
+              "transforms.createKey.fields":"id",
+              "transforms.extractInt.type":"org.apache.kafka.connect.transforms.ExtractField$Key",
+              "transforms.extractInt.field":"id"
+              }
+      }'

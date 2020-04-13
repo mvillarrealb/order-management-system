@@ -9,13 +9,17 @@ export class ProductsController {
     private readonly productService: ProductsService,
   ) {}
   @Get(':sku')
-  findBySku(@Param(':sku') skuCode: string): Observable<Product> {
+  findBySku(@Param('sku') skuCode: string): Observable<Product[]> {
     return this.productService.findBySku(skuCode);
   }
 
   @Get()
   findByText(@Query('text')text: string): Observable<Product[]> {
-    return this.productService.findByText(text);
+    if (text != null ) {
+      return this.productService.findByText(text);
+    } else {
+      return this.productService.findAll();
+    }
   }
 }
 

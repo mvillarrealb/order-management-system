@@ -1,0 +1,22 @@
+{
+  "name": "JdbcSourceConnector",
+  "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+  "connection.url": "jdbc:mysql://127.0.0.1:3306/orders",
+  "timestamp.column.name": "createdAt",
+  "connection.password": "postgres",
+  "validate.non.null": "true",
+  "tasks.max": "1",
+  "batch.max.rows": "100",
+  "timestamp.delay.interval.ms": "0",
+  "table.types": "TABLE",
+  "table.poll.interval.ms": "60000",
+  "mode": "timestamp",
+  "key.converter.schemas.enable": "true",
+  "topic.prefix": "geodb-",
+  "connection.user": "postgres",
+  "poll.interval.ms": "1000",
+  "value.converter.schemas.enable": "true",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "numeric.precision.mapping": "false",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter"
+}

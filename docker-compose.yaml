@@ -15,7 +15,7 @@ services:
     ports: 
       - 3306:3306
   search_engine:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     environment:
       - http.host=0.0.0.0
       - transport.host=127.0.0.1
@@ -29,3 +29,5 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
+  kafka_full:
+  

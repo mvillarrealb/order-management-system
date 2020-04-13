@@ -1,0 +1,14 @@
+{
+  "name": "sink-elastic-twitter-distributed",
+  "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+  "type.name": "kafka-connect",
+  "tasks.max": "1",
+  "topics": "products",
+  "key.ignore": "true",
+  "key.converter.schemas.enable": "true",
+  "value.converter.schemas.enable": "true",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "connection.url": "http://127.0.0.1:9200",
+  "topic.schema.ignore": "true"
+}
