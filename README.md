@@ -56,3 +56,5 @@ Document based & text search database used to index product catalog
 
 * Implement inventory system(redis based)
 * Implement shipping service(backed by event sourcing)
+
+docker run -network host -d --name=pgadmin -ePGADMIN_DEFAULT_EMAIL=mvillarreal@mango.com -ePGADMIN_DEFAULT_PASSWORD=casa1234 -p 80:80 dpage/pgadmin4

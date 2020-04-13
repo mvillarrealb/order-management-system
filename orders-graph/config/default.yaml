@@ -1,0 +1,13 @@
+server:
+  port: 3000
+  logger:
+    - error
+    - warn
+db:
+  type: "postgres"
+  port: 5432
+  synchronize: true
+  database: "orders_graph"
+  host: "127.0.0.1"
+  username: "postgres"
+  password: "casa1234"
