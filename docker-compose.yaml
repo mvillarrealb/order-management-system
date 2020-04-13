@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  postgres_database:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: casa1234
+    ports: 
+      - 5432:5432
+  mysql_database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: casa1234
+    ports: 
+      - 3306:3306
+  search_engine:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+      - 9300:9300

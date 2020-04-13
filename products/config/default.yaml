@@ -1,0 +1,8 @@
+app:
+  port: 3000
+elastic:
+  url: "http://127.0.0.1:9200"
+  endpoint: "products"
+http:
+  timeout: 3000
+  max-redirects: 2

@@ -1,0 +1,13 @@
+server:
+  port: 3000
+  logger:
+    - error
+    - warn
+db:
+  type: "mysql"
+  port: 3306
+  synchronize: true
+  database: "customers"
+  host: "127.0.0.1"
+  username: "root"
+  password: "casa1234"
