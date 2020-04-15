@@ -37,4 +37,10 @@ export class Address extends BaseEntity {
   
   @Column()
   customerId: string;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+  createdAt: Date;
+  
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+  updatedAt: Date;
 }

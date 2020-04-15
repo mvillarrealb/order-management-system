@@ -12,11 +12,12 @@ export class Order extends BaseEntity {
   @OneToMany(type => OrderDetail, detail => detail.order, { eager: true, cascade: true })
   details: OrderDetail[];
   
-  @Column()
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
   createdAt: Date;
 
-  @Column()
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
   updatedAt: Date;
+  
   @Column()
   active: boolean;
 }

@@ -28,10 +28,10 @@ export class Customer extends BaseEntity {
   @OneToMany(type => Address, address => address.customer, { eager: true })
   addresses: Address[];
   
-  @Column()
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
   createdAt: Date;
   
-  @Column()
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
   updatedAt: Date;
   
   @Column()

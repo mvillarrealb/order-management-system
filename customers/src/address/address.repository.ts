@@ -15,6 +15,8 @@ export class AddressRepository extends Repository<Address> {
     try {
       address.id = uuid();
       address.customerId = customerId;
+      address.createdAt = new Date();
+      address.updatedAt = new Date();
       await this.save(address);
       return address;
     } catch(error) {
@@ -25,6 +27,7 @@ export class AddressRepository extends Repository<Address> {
   async updateAddress(id: string, updateAddressDTO: UpdateAddressDTO): Promise<Address> {
     const address = await this.findAddress(id);
     Object.assign(address, updateAddressDTO);
+    address.updatedAt = new Date();
     address.save();
 
     return address;

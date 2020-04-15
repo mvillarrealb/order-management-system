@@ -2,10 +2,9 @@
   "name": "oms-customers",
   "config": {
     "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
-    "timestamp.column.name": "createdAt",
-    "incrementing.column.name": "id",
+    "timestamp.column.name": "updatedAt",
     "timestamp.delay.interval.ms": "0",
-    "connection.url": "jdbc:mysql://127.0.0.1:3306/customers",
+    "connection.url": "jdbc:mysql://mysql_database:3306/customers",
     "connection.password": "casa1234",
     "connection.user": "root",
     "topic.prefix": "",
@@ -15,11 +14,11 @@
     "batch.max.rows": "100",
     "table.types": "TABLE",
     "mode": "timestamp",
+    "table.whitelist": "customer,address",
     "value.converter.schemas.enable": "true",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "key.converter": "org.apache.kafka.connect.json.JsonConverter",
     "key.converter.schemas.enable": "true",
     "numeric.precision.mapping": "false"
- 
   }
 }

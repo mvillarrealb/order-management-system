@@ -29,5 +29,11 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
-  kafka_full:
-  
+  kafka_lite:
+    image: kafka-lite:0.0.1
+    volumes:
+      - ~/connectors:/opt/connectors
+    ports:
+      - 9092:9092
+      - 8083:8083
+      - 2181:2181
